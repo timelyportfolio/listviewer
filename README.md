@@ -34,3 +34,5 @@ jsonedit( par() )
 jsonedit(jsonedit(par()))
 
 ```
+
+See the above [interactive view of par](http://bl.ocks.org/timelyportfolio/5186ed143f773063a077) for yourself.
