@@ -2,14 +2,50 @@
 % Please edit documentation in R/jsonedit.R
 \name{jsonedit}
 \alias{jsonedit}
-\title{listviewer htmlwidget using \href{https://github.com/josdejong/jsoneditor}{jsoneditor}}
+\title{View \code{lists} with \href{https://github.com/josdejong/jsoneditor}{jsoneditor}}
 \usage{
-jsonedit(message, width = NULL, height = NULL)
+jsonedit(listdata = NULL, mode = "tree", modes = c("code", "form", "text",
+  "tree", "view"), ..., width = NULL, height = NULL)
+}
+\arguments{
+\item{listdata}{\code{list} data to view.  Although designed for \code{lists}, \code{listdata} can
+be any data source that can be rendered into \code{JSON} with \code{jsonlite}.}
+
+\item{mode}{\code{string} for the initial view from \code{modes}.  \code{'tree'} is the default.}
+
+\item{modes}{\code{string} \code{c('code', 'form', 'text', 'tree', 'view')} will be the default, since
+these are all the modes currently supported by \code{jsoneditor}.}
+
+\item{...}{\code{list} of other options for \code{jsoneditor}.  This is a temporary way
+of trying other options in \code{jsoneditor}.  In the future, this will be eliminated
+in favor of specific, more self-documenting and helpful arguments.}
+
+\item{width}{integer in pixels defining the width of the \code{div} container.}
+
+\item{height}{integer in pixels defining the height of the \code{div} container.}
 }
 \description{
 \code{jsoneditor} provides a flexible and helpful interactive tree-like view of \code{lists}
   or really any R dataset that can be represented as \code{JSON}.
   Eventually, this could become a very nice way to not only view but also modify R data using
   Shiny.
+}
+\examples{
+\dontrun{
+   library(listviewer)
+
+   # using the data from the jsoneditor simple example
+   #  in R list form
+   jsonedit(
+     list(
+       array = c(1,2,3)
+       ,boolean = TRUE
+       ,null = NULL
+       ,number = 123
+       ,object = list( a="b", c="d" )
+       ,string = "Hello World"
+     )
+   )
+}
 }
 

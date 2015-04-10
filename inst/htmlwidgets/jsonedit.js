@@ -6,15 +6,21 @@ HTMLWidgets.widget({
 
   initialize: function(el, width, height) {
 
-    return {
-      // TODO: add instance fields as required
-    }
+    return { editor: null  }
 
   },
 
   renderValue: function(el, x, instance) {
 
-    el.innerText = x.message;
+    // clear out our element in case of dynamic
+    //   probably a sloppy way of doing it but easy and dependency-free
+    //   feel free to make suggestions
+    el.innerHTML = "";
+
+    // create our editor
+    var editor = new JSONEditor( el, x.options, x.data );
+
+    instance.editor = editor;
 
   },
 
