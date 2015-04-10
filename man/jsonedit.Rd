@@ -46,6 +46,14 @@ in favor of specific, more self-documenting and helpful arguments.}
        ,string = "Hello World"
      )
    )
+
+   # also works with most data.frames
+   jsonedit( mtcars )
+
+   # helpful interactive view of par
+   jsonedit( par() )
+
+
 }
 }
 
