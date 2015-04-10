@@ -28,3 +28,9 @@ jsonedit( mtcars )
 # helpful interactive view of par
 jsonedit( par() )
 ```
+
+```r
+# meta view of the above
+jsonedit(jsonedit(par()))
+
+```
