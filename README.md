@@ -1,5 +1,11 @@
 # listviewer
-A package of R htmlwidgets to interactively view *and maybe modify* `lists`.
+A package of R htmlwidgets to interactively view *and maybe modify* `lists`.  As of now, `listviewer` provides just one interface to [`jsoneditor`](https://github.com/josdejong/jsoneditor).  `listviewer` is designed though to support multiple interfaces.
+
+### install
+```r
+devtools::install_github("timelyportfolio/listviewer")
+```
+
 
 ### jsoneditor
 [`jsoneditor`](https://github.com/josdejong/jsoneditor) is a really well designed `JSON` interactive editor by [Jos de Jong](http://josdejong.com/).  Since most `R` data can be represented in `JSON`, we can use this great `JavaScript` library in `R`.
@@ -7,6 +13,9 @@ A package of R htmlwidgets to interactively view *and maybe modify* `lists`.
 ```r
 # using the data from the jsoneditor simple example
 #  in R list form
+
+library(listviewer)
+
 jsonedit(
   list(
     array = c(1,2,3)
@@ -32,5 +41,4 @@ jsonedit( par() )
 ```r
 # meta view of the above
 jsonedit(jsonedit(par()))
-
 ```
