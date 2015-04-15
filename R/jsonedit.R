@@ -5,8 +5,10 @@
 #'   Eventually, this could become a very nice way to not only view but also modify R data using
 #'   Shiny.
 #'
-#' @param listdata \code{list} data to view.  Although designed for \code{lists}, \code{listdata} can
-#'          be any data source that can be rendered into \code{JSON} with \code{jsonlite}.
+#' @param listdata \code{list} or \code{String} data to view.  Although designed for \code{lists}, \code{listdata} can
+#'          be any data source that can be rendered into \code{JSON} with \code{jsonlite}.  Alternately,
+#'          \code{listdata} could be a \code{String} of valid \code{JSON}.  This might be helpful
+#'          when dealing with an API response.
 #' @param mode \code{string} for the initial view from \code{modes}.  \code{'tree'} is the default.
 #' @param modes \code{string} \code{c('code', 'form', 'text', 'tree', 'view')} will be the default, since
 #'          these are all the modes currently supported by \code{jsoneditor}.
@@ -30,6 +32,11 @@
 #'        ,object = list( a="b", c="d" )
 #'        ,string = "Hello World"
 #'      )
+#'    )
+#'
+#'    # jsonedit also works with a JSON string
+#'    jsonedit(
+#'      '{"array" : [1,2,3] , "boolean" : true, "null" : null, number = 123}'
 #'    )
 #'
 #'    # also works with most data.frames
