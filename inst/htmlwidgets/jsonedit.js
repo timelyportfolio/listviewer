@@ -18,12 +18,10 @@ HTMLWidgets.widget({
     el.innerHTML = "";
 
     // create our editor
-    var editor = new JSONEditor( el, x.options, x.data );
+    var editor = new JSONEditor( el, x.options, (typeof(x.data)==="string") ? JSON.parse(x.data) : x.data );
 
     // use expando property to store editor for change callback potential
     el.editor = editor;
-
-    instance.editor = editor;
 
   },
 

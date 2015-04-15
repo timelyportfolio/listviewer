@@ -8,8 +8,10 @@ jsonedit(listdata = NULL, mode = "tree", modes = c("code", "form", "text",
   "tree", "view"), ..., width = NULL, height = NULL)
 }
 \arguments{
-\item{listdata}{\code{list} data to view.  Although designed for \code{lists}, \code{listdata} can
-be any data source that can be rendered into \code{JSON} with \code{jsonlite}.}
+\item{listdata}{\code{list} or \code{String} data to view.  Although designed for \code{lists}, \code{listdata} can
+be any data source that can be rendered into \code{JSON} with \code{jsonlite}.  Alternately,
+\code{listdata} could be a \code{String} of valid \code{JSON}.  This might be helpful
+when dealing with an API response.}
 
 \item{mode}{\code{string} for the initial view from \code{modes}.  \code{'tree'} is the default.}
 
@@ -45,6 +47,11 @@ in favor of specific, more self-documenting and helpful arguments.}
        ,object = list( a="b", c="d" )
        ,string = "Hello World"
      )
+   )
+
+   # jsonedit also works with a JSON string
+   jsonedit(
+     '{"array" : [1,2,3] , "boolean" : true, "null" : null, number = 123}'
    )
 
    # also works with most data.frames
