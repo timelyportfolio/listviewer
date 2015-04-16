@@ -53,6 +53,23 @@ jsonedit(
 )
 ```
 
+How about `topojson`?
+
+```r
+### experiment with topojson
+library(httr)
+library(pipeR)
+library(listviewer)
+
+# topojson for Afghanistan
+url_path = "https://gist.githubusercontent.com/markmarkoh/8856417/raw/6178d18115d9f273656d294a867c3f83b739a951/customAfghanMap.topo.json"
+
+url_path %>>% 
+  GET %>>%
+  content( as = "text") %>>%
+  jsonedit
+```
+
 ### Shiny example
 
 `listviewer` works with `Shiny` but the implementation is crude and likely to change.  Here is an example.  If you really want to use it, I would recommend `debouncing` the `change` callback.
