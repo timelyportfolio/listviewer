@@ -22,3 +22,4 @@ Description: R lists especially nested lists can be very difficult to visualize 
               understand, and maybe even modify your R lists.
 License: MIT + file LICENSE
 LazyData: TRUE
+Imports: htmlwidgets
