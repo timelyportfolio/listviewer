@@ -59,6 +59,20 @@ jsonedit <- function(
     , height = NULL
 ) {
 
+  # to avoid toJSON keep_vec_names warnings
+  #  with named vectors
+  #  convert named vectors to list
+  #  see https://github.com/timelyportfolio/listviewer/issues/10
+  #  note the conversion does not occur
+  #  if a named vector is nested in a list or data.frame
+  if(
+    !inherits(listdata,"list") &&
+    is.null(dim(listdata)) &&
+    !is.null(names(listdata))
+  ){
+    listdata <- as.list(listdata)
+  }
+
   # forward options using x
   x = list(
     data = listdata
@@ -79,7 +93,7 @@ jsonedit <- function(
 #'
 #' @export
 jsoneditOutput <- function(outputId, width = '100%', height = '400px'){
-  shinyWidgetOutput(outputId, 'jsonedit', width, height, package = 'listviewer')
+  htmlwidgets::shinyWidgetOutput(outputId, 'jsonedit', width, height, package = 'listviewer')
 }
 
 #' Widget render function for use in Shiny
@@ -87,5 +101,5 @@ jsoneditOutput <- function(outputId, width = '100%', height = '400px'){
 #' @export
 renderJsonedit <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  shinyRenderWidget(expr, jsoneditOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, jsoneditOutput, env, quoted = TRUE)
 }

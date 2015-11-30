@@ -1,8 +1,8 @@
 Package: listviewer
 Type: Package
 Title: htmlwidget for interactive views of R lists
-Version: 0.1
-Date: 2015-04-10
+Version: 0.3
+Date: 2015-11-30
 Author: c(
           person(
             "Jos", "de Jong"
