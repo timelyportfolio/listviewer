@@ -63,14 +63,19 @@ jsonedit <- function(
   #  with named vectors
   #  convert named vectors to list
   #  see https://github.com/timelyportfolio/listviewer/issues/10
-  #  note the conversion does not occur
-  #  if a named vector is nested in a list or data.frame
-  if(
-    !inherits(listdata,"list") &&
-    is.null(dim(listdata)) &&
-    !is.null(names(listdata))
-  ){
-    listdata <- as.list(listdata)
+  named_vec2list <- function(listx){
+    if(
+      !inherits(listx,"list") &&
+      is.null(dim(listx)) &&
+      !is.null(names(listx))
+    ){
+      listx <- as.list(listx)
+    }
+    return(listx)
+  }
+
+  if(inherits(listdata,"list")){
+    listdata <- rapply(listdata,named_vec2list,how="list")
   }
 
   # forward options using x
