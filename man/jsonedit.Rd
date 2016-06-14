@@ -2,7 +2,7 @@
 % Please edit documentation in R/jsonedit.R
 \name{jsonedit}
 \alias{jsonedit}
-\title{View \code{lists} with \href{https://github.com/josdejong/jsoneditor}{jsoneditor}}
+\title{View \code{Lists} with \href{https://github.com/josdejong/jsoneditor}{`jsoneditor`}}
 \usage{
 jsonedit(listdata = NULL, mode = "tree", modes = c("code", "form", "text",
   "tree", "view"), ..., width = NULL, height = NULL)

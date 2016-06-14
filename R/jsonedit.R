@@ -1,4 +1,4 @@
-#' View \code{lists} with \href{https://github.com/josdejong/jsoneditor}{jsoneditor}
+#' View \code{Lists} with \href{https://github.com/josdejong/jsoneditor}{`jsoneditor`}
 #'
 #' \code{jsoneditor} provides a flexible and helpful interactive tree-like view of \code{lists}
 #'   or really any R dataset that can be represented as \code{JSON}.
