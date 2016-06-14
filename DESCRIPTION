@@ -1,6 +1,6 @@
 Package: listviewer
 Type: Package
-Title: Htmlwidget For Interactive Views of R Lists
+Title: `htmlwidget` or Interactive Views of R Lists
 Version: 1.0
 Date: 2016-06-14
 Author:
@@ -10,7 +10,7 @@ Author:
   )
 Maintainer: Kent Russell<kent.russell@timelyportfolio.com>
 Description: R lists especially nested lists can be very difficult to visualize
-    or represent. \code{str} just isn't enough, so this suite of htmlwidgets is
+    or represent. `str` just isn't enough, so this suite of `htmlwidgets` is
     designed to help see, understand, and maybe even modify your R lists.
 License: MIT + file LICENSE
 LazyData: TRUE
