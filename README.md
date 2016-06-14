@@ -1,3 +1,5 @@
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/listviewer)](https://cran.r-project.org/package=listviewer)
+
 # listviewer
 A package of R htmlwidgets to interactively view *and maybe modify* `lists`.  As of now, `listviewer` provides just one interface to [`jsoneditor`](https://github.com/josdejong/jsoneditor).  `listviewer` is designed though to support multiple interfaces.
 
