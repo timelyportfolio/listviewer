@@ -7,7 +7,7 @@ A package of R htmlwidgets to interactively view *and maybe modify* `lists`.  As
 
 **CRAN**
 ```r
-install.packages("listviewer"")
+install.packages("listviewer")
 ```
 
 **Development Version**
