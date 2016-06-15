@@ -18,6 +18,7 @@ Provides a \href{http://shiny.rstudio.com/articles/gadgets.html}{Shiny gadget}
   changes for use in R.
 }
 \examples{
+\dontrun{
 library(listviewer)
 
 jsonedit_gadget(
@@ -26,5 +27,6 @@ jsonedit_gadget(
     names=letters[1:4]
   )
 )
+}
 }
 
