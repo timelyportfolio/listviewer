@@ -42,3 +42,22 @@ document.getElementById("done").onclick = function() {
     stopOnCancel = FALSE
   )
 }
+
+#' jsoneditAddin
+#'
+#' This uses the gadget as an addin, so you can select objects then
+#'   activate the addin in RStudio either via menu or a hotkey.
+#'
+#' @keywords internal
+jsoneditAddin <- function(){
+  # Get the document context.
+  context <- rstudioapi::getActiveDocumentContext()
+
+  # Set the default data to use based on the selection.
+  text <- context$selection[[1]]$text
+
+  obj <- get(text, envir = .GlobalEnv)
+
+  jsonedit_gadget(obj)
+
+}
