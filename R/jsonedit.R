@@ -1,4 +1,4 @@
-#' View \code{Lists} with \href{https://github.com/josdejong/jsoneditor}{`jsoneditor`}
+#' View \code{Lists} with \code{\href{https://github.com/josdejong/jsoneditor}{jsoneditor}}
 #'
 #' \code{jsoneditor} provides a flexible and helpful interactive tree-like view of \code{lists}
 #'   or really any R dataset that can be represented as \code{JSON}.
@@ -18,7 +18,6 @@
 #' @param width integer in pixels defining the width of the \code{div} container.
 #' @param height integer in pixels defining the height of the \code{div} container.
 #' @examples
-#' \dontrun{
 #'    library(listviewer)
 #'
 #'    # using the data from the jsoneditor simple example
@@ -45,8 +44,6 @@
 #'    # helpful interactive view of par
 #'    jsonedit( par() )
 #'
-#'
-#' }
 #' @import htmlwidgets
 #'
 #' @export

@@ -2,7 +2,7 @@
 % Please edit documentation in R/jsonedit.R
 \name{jsonedit}
 \alias{jsonedit}
-\title{View \code{Lists} with \href{https://github.com/josdejong/jsoneditor}{`jsoneditor`}}
+\title{View \code{Lists} with \code{\href{https://github.com/josdejong/jsoneditor}{jsoneditor}}}
 \usage{
 jsonedit(listdata = NULL, mode = "tree", modes = c("code", "form", "text",
   "tree", "view"), ..., width = NULL, height = NULL)
@@ -33,7 +33,6 @@ in favor of specific, more self-documenting and helpful arguments.}
   Shiny.
 }
 \examples{
-\dontrun{
    library(listviewer)
 
    # using the data from the jsoneditor simple example
@@ -60,7 +59,5 @@ in favor of specific, more self-documenting and helpful arguments.}
    # helpful interactive view of par
    jsonedit( par() )
 
-
-}
 }
 
