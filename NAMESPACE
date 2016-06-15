@@ -2,5 +2,6 @@
 
 export(jsonedit)
 export(jsoneditOutput)
+export(jsonedit_gadget)
 export(renderJsonedit)
 import(htmlwidgets)
