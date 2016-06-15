@@ -1,25 +1,20 @@
 Package: listviewer
 Type: Package
-Title: htmlwidget for interactive views of R lists
-Version: 0.1
-Date: 2015-04-10
-Author: c(
-          person(
-            "Jos", "de Jong"
-            , role = c("aut", "cph")
-            , comment = "jsoneditor.js library in htmlwidgets/jsoneditor, http://github.com/josdejong/jsoneditor/"
-          ),
-          person(
-            "Kenton","Russell"
-            , role = c("aut","cre")
-            , comment = "R interface"
-            , email = "kent.russell@timelyportfolio.com"
-          )
-        )
+Title: 'htmlwidget' for Interactive Views of R Lists
+Version: 1.1
+Date: 2016-06-15
+Authors@R: c(
+    person("Jos", "de Jong", role = c("aut", "cph"), comment = "jsoneditor.js library in htmlwidgets/jsoneditor, http://github.com/josdejong/jsoneditor/" ),
+    person("Kenton","Russell", role = c("aut","cre"), comment = "R interface" , email = "kent.russell@timelyportfolio.com" )
+  )
 Maintainer: Kent Russell<kent.russell@timelyportfolio.com>
-Description: R lists especially nested lists can be very difficult to visualize or represent.
-              \code{str} just isn't enough, so this suite of htmlwidgets is designed to help see,
-              understand, and maybe even modify your R lists.
+Description: R lists especially nested lists can be very difficult to visualize
+    or represent. 'str' just isn't enough, so this suite of 'htmlwidgets' is
+    designed to help see, understand, and maybe even modify your R lists.
 License: MIT + file LICENSE
 LazyData: TRUE
+URL: https://github.com/timelyportfolio/listviewer
+BugReports: https://github.com/timelyportfolio/listviewer/issues
 Imports: htmlwidgets
+Suggests: htmltools, jsonlite, miniUI, shiny
+RoxygenNote: 5.0.1

@@ -1,13 +1,23 @@
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/listviewer)](https://cran.r-project.org/package=listviewer) [![Travis-CI Build Status](https://travis-ci.org/timelyportfolio/listviewer.svg?branch=master)](https://travis-ci.org/timelyportfolio/listviewer)
+
 # listviewer
 A package of R htmlwidgets to interactively view *and maybe modify* `lists`.  As of now, `listviewer` provides just one interface to [`jsoneditor`](https://github.com/josdejong/jsoneditor).  `listviewer` is designed though to support multiple interfaces.
 
 ### install
+
+**CRAN**
+```r
+install.packages("listviewer")
+```
+
+**Development Version**
 ```r
 devtools::install_github("timelyportfolio/listviewer")
 ```
 
 
 ### jsoneditor
+
 [`jsoneditor`](https://github.com/josdejong/jsoneditor) is a really well designed `JSON` interactive editor by [Jos de Jong](http://josdejong.com/).  Since most `R` data can be represented in `JSON`, we can use this great `JavaScript` library in `R`.
 
 ```r
@@ -102,3 +112,7 @@ server <- function(input,output){
 runApp( list( ui = ui, server = server ) )
 
 ```
+
+### code of conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.

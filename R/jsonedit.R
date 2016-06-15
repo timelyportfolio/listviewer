@@ -1,6 +1,6 @@
-#' View \code{lists} with \href{https://github.com/josdejong/jsoneditor}{jsoneditor}
+#' View \code{Lists} with \code{'jsoneditor'}
 #'
-#' \code{jsoneditor} provides a flexible and helpful interactive tree-like view of \code{lists}
+#' \code{jsonedit} provides a flexible and helpful interactive tree-like view of \code{lists}
 #'   or really any R dataset that can be represented as \code{JSON}.
 #'   Eventually, this could become a very nice way to not only view but also modify R data using
 #'   Shiny.
@@ -18,7 +18,6 @@
 #' @param width integer in pixels defining the width of the \code{div} container.
 #' @param height integer in pixels defining the height of the \code{div} container.
 #' @examples
-#' \dontrun{
 #'    library(listviewer)
 #'
 #'    # using the data from the jsoneditor simple example
@@ -45,8 +44,6 @@
 #'    # helpful interactive view of par
 #'    jsonedit( par() )
 #'
-#'
-#' }
 #' @import htmlwidgets
 #'
 #' @export
@@ -58,6 +55,25 @@ jsonedit <- function(
     , width = NULL
     , height = NULL
 ) {
+
+  # to avoid toJSON keep_vec_names warnings
+  #  with named vectors
+  #  convert named vectors to list
+  #  see https://github.com/timelyportfolio/listviewer/issues/10
+  named_vec2list <- function(listx){
+    if(
+      !inherits(listx,"list") &&
+      is.null(dim(listx)) &&
+      !is.null(names(listx))
+    ){
+      listx <- as.list(listx)
+    }
+    return(listx)
+  }
+
+  if(inherits(listdata,"list")){
+    listdata <- rapply(listdata,named_vec2list,how="list")
+  }
 
   # forward options using x
   x = list(
@@ -75,17 +91,30 @@ jsonedit <- function(
   )
 }
 
-#' Widget output function for use in Shiny
+#' Shiny Bindings for `jsonedit`
+#'
+#' Output and render functions for using jsonedit within Shiny
+#' applications and interactive Rmd documents.
+#'
+#' @param outputId output variable to read from
+#' @param width,height Must be a valid CSS unit (like \code{'100\%'},
+#'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
+#'   string and have \code{'px'} appended.
+#' @param expr An expression that generates a jsonedit
+#' @param env The environment in which to evaluate \code{expr}.
+#' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
+#'   is useful if you want to save an expression in a variable.
+#'
+#' @name jsonedit-shiny
 #'
 #' @export
 jsoneditOutput <- function(outputId, width = '100%', height = '400px'){
-  shinyWidgetOutput(outputId, 'jsonedit', width, height, package = 'listviewer')
+  htmlwidgets::shinyWidgetOutput(outputId, 'jsonedit', width, height, package = 'listviewer')
 }
 
-#' Widget render function for use in Shiny
-#'
+#' @rdname jsonedit-shiny
 #' @export
 renderJsonedit <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  shinyRenderWidget(expr, jsoneditOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, jsoneditOutput, env, quoted = TRUE)
 }
