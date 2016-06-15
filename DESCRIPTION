@@ -16,5 +16,5 @@ LazyData: TRUE
 URL: https://github.com/timelyportfolio/listviewer
 BugReports: https://github.com/timelyportfolio/listviewer/issues
 Imports: htmlwidgets
-Suggests: htmltools, jsonlite, shiny
+Suggests: htmltools, jsonlite, miniUI, shiny
 RoxygenNote: 5.0.1
