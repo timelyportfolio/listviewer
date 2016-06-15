@@ -1,3 +1,4 @@
+\dontrun{
 library(listviewer)
 
 jsonedit_gadget(
@@ -6,3 +7,4 @@ jsonedit_gadget(
     names=letters[1:4]
   )
 )
+}
