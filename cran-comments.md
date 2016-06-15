@@ -1,3 +1,5 @@
+moved examples out of `\dontrun`
+
 ## Test environments
 * local Windows 7 install, R 3.2.2
 * ubuntu (on travis-ci), R 3.2.3
