@@ -1,6 +1,6 @@
-#' View \code{Lists} with \code{\href{https://github.com/josdejong/jsoneditor}{jsoneditor}}
+#' View \code{Lists} with \code{'jsoneditor'}
 #'
-#' \code{jsoneditor} provides a flexible and helpful interactive tree-like view of \code{lists}
+#' \code{jsonedit} provides a flexible and helpful interactive tree-like view of \code{lists}
 #'   or really any R dataset that can be represented as \code{JSON}.
 #'   Eventually, this could become a very nice way to not only view but also modify R data using
 #'   Shiny.
