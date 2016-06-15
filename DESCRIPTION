@@ -1,8 +1,8 @@
 Package: listviewer
 Type: Package
 Title: 'htmlwidget' for Interactive Views of R Lists
-Version: 1.0
-Date: 2016-06-14
+Version: 1.1
+Date: 2016-06-15
 Authors@R: c(
     person("Jos", "de Jong", role = c("aut", "cph"), comment = "jsoneditor.js library in htmlwidgets/jsoneditor, http://github.com/josdejong/jsoneditor/" ),
     person("Kenton","Russell", role = c("aut","cre"), comment = "R interface" , email = "kent.russell@timelyportfolio.com" )
@@ -16,5 +16,5 @@ LazyData: TRUE
 URL: https://github.com/timelyportfolio/listviewer
 BugReports: https://github.com/timelyportfolio/listviewer/issues
 Imports: htmlwidgets
-Suggests: htmltools, jsonlite, shiny
+Suggests: htmltools, jsonlite, miniUI, shiny
 RoxygenNote: 5.0.1
