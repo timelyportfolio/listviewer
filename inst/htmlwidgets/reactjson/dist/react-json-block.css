@@ -1,0 +1,36 @@
+/* Create a block desing instead the default inline one for json editor */
+.jsonField {
+	display: block !important;
+}
+.jsonName {
+	display: block;
+	position: relative;
+	font-style: normal;
+	text-align: left;
+}
+
+.jsonName a, .jsonFixed {
+	width: 10px;
+	margin: 0;
+	display: inline-block;
+}
+
+.jsonValue {
+	margin-left: 10px;
+}
+
+.objectField > .jsonValue,
+.objectField > .jsonName,
+.arrayField > .jsonValue,
+.arrayField > .jsonName {
+	display: inline;
+}
+
+.jsonEditor .jsonChildren {
+	margin-left: 10px;
+	padding-left: 10px;
+}
+
+.jsonError > .jsonValue .jsonErrorMsg {
+	display: block;
+}
