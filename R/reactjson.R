@@ -3,7 +3,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-#' @example examples/examples_reactjson.R
+#' @example inst/examples/examples_reactjson.R
 reactjson <- function(
   json = list(),
   width = NULL, height = NULL, elementId = NULL
