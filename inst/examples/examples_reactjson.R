@@ -9,6 +9,7 @@ library(reactR)
 reactjson()
 
 reactjson(head(mtcars,4))
+reactjson(I(jsonlite::toJSON(head(mtcars,5))))
 
 library(shiny)
 
