@@ -1,3 +1,11 @@
+# listviewer 1.4.0
+
+* add `elementId` to the `jsonedit` function
+
+# listviewer 1.3
+
+* add [react-json](https://github.com/arqex/react-json) as an alternate list viewer
+
 # listviewer 1.2
 
 * add RStudio addin capabilities

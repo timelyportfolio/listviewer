@@ -5,7 +5,7 @@
 \title{View \code{Lists} with \code{'jsoneditor'}}
 \usage{
 jsonedit(listdata = NULL, mode = "tree", modes = c("code", "form", "text",
-  "tree", "view"), ..., width = NULL, height = NULL)
+  "tree", "view"), ..., width = NULL, height = NULL, elementId = NULL)
 }
 \arguments{
 \item{listdata}{\code{list} or \code{String} data to view.  Although designed for \code{lists}, \code{listdata} can
@@ -25,6 +25,10 @@ in favor of specific, more self-documenting and helpful arguments.}
 \item{width}{integer in pixels defining the width of the \code{div} container.}
 
 \item{height}{integer in pixels defining the height of the \code{div} container.}
+
+\item{elementId}{character to specify valid \code{CSS} id of the
+htmlwidget for special situations in which you want a non-random
+identifier.}
 }
 \description{
 \code{jsonedit} provides a flexible and helpful interactive tree-like view of \code{lists}
