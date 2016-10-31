@@ -1,10 +1,11 @@
 Package: listviewer
 Type: Package
 Title: 'htmlwidget' for Interactive Views of R Lists
-Version: 1.2
-Date: 2016-08-31
+Version: 1.4.0
+Date: 2016-10-31
 Authors@R: c(
     person("Jos", "de Jong", role = c("aut", "cph"), comment = "jsoneditor.js library in htmlwidgets/jsoneditor, http://github.com/josdejong/jsoneditor/" ),
+    person("Javier"," Marquez", role = c("aut", "cph"), comment = "react-json library in htmlwidgets/react-json, https://github.com/arqex/reactjson"),
     person("Kenton","Russell", role = c("aut","cre"), comment = "R interface" , email = "kent.russell@timelyportfolio.com" )
   )
 Maintainer: Kent Russell<kent.russell@timelyportfolio.com>

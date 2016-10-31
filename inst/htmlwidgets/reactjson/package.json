@@ -1,0 +1,41 @@
+{
+  "name": "react-json",
+  "version": "0.2.1",
+  "description": "A JSON editor packed as a React.js component and the simplest way of creating web forms.",
+  "main": "Json.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha tests",
+    "build": "./node_modules/.bin/gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arqex/react-json.git"
+  },
+  "keywords": [
+    "react",
+    "forms",
+    "json"
+  ],
+  "author": "Javier Marquez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arqex/react-json/issues"
+  },
+  "homepage": "https://github.com/arqex/react-json",
+  "dependencies": {
+    "freezer-js": "^0.5.2",
+    "object-assign": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": "^0.13.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-insert": "^0.5.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-webpack": "^1.4.0",
+    "jsdom": "^3.1.2",
+    "mocha": "^2.2.4",
+    "node-libs-browser": "^0.5.2"
+  }
+}

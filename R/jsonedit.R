@@ -17,6 +17,9 @@
 #'          in favor of specific, more self-documenting and helpful arguments.
 #' @param width integer in pixels defining the width of the \code{div} container.
 #' @param height integer in pixels defining the height of the \code{div} container.
+#' @param elementId character to specify valid \code{CSS} id of the
+#'          htmlwidget for special situations in which you want a non-random
+#'          identifier.
 #' @examples
 #'    library(listviewer)
 #'
@@ -54,6 +57,7 @@ jsonedit <- function(
     , ...
     , width = NULL
     , height = NULL
+    , elementId = NULL
 ) {
 
   # to avoid toJSON keep_vec_names warnings
@@ -87,7 +91,8 @@ jsonedit <- function(
     x,
     width = width,
     height = height,
-    package = 'listviewer'
+    package = 'listviewer',
+    elementId = elementId
   )
 }
 
