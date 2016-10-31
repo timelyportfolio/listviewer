@@ -1,10 +1,11 @@
 {
   "name": "react-json",
-  "version": "0.0.1",
+  "version": "0.2.1",
   "description": "A JSON editor packed as a React.js component and the simplest way of creating web forms.",
   "main": "Json.js",
   "scripts": {
-    "test": "node node_modules/mocha/bin/mocha tests"
+    "test": "node node_modules/mocha/bin/mocha tests",
+    "build": "./node_modules/.bin/gulp"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "gulp": "^3.8.11",
+    "gulp-insert": "^0.5.0",
     "gulp-uglify": "^1.2.0",
     "gulp-webpack": "^1.4.0",
     "jsdom": "^3.1.2",

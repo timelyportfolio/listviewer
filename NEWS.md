@@ -1,6 +1,7 @@
 # listviewer 1.4.0
 
 * add `elementId` to the `jsonedit` function
+* update `react-json` to [`0.2.1`]
 
 # listviewer 1.3
 

@@ -32,9 +32,9 @@ reactjson <- function(
     reactR::html_dependency_react(),
     htmltools::htmlDependency(
       name = "react-json",
-      version = "0.0.1",
+      version = "0.2.1",
       src = system.file("htmlwidgets/reactjson/dist", package="listviewer"),
-      script = "Json.js",
+      script = "Json.min.js",
       stylesheet = c("react-json.css")
     )
   )
