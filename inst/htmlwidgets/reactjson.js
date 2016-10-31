@@ -15,7 +15,10 @@ HTMLWidgets.widget({
           ReactDOM.render(
             React.createElement(
               Json,
-              { value: x.json, onChange: logChange }
+              {
+                value: (typeof(x.data)==="string") ? JSON.parse(x.data) : x.data,
+                onChange: logChange
+              }
             ),
             document.body
           );

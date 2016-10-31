@@ -25,4 +25,6 @@ Suggests:
   jsonlite,
   miniUI,
   rstudioapi
+Enhances:
+  reactR
 RoxygenNote: 5.0.1

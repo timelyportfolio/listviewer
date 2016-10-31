@@ -1,5 +1,5 @@
-# requires dev version of listviewer
-# devtools::install_github("timelyportfolio/listviewer@feature/react-json")
+\dontrun{
+
 library(listviewer)
 
 # use reactR for React dependencies
@@ -25,3 +25,5 @@ shinyApp(
     )
   }
 )
+
+}

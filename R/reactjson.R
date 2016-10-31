@@ -1,21 +1,31 @@
 #' Edit R Data with 'react-json'
 #'
+#' @param listdata \code{list} or \code{String} data to view.  Although designed for \code{lists}, \code{listdata} can
+#'          be any data source that can be rendered into \code{JSON} with \code{jsonlite}.  Alternately,
+#'          \code{listdata} could be a \code{String} of valid \code{JSON}.  This might be helpful
+#'          when dealing with an API response.
+#' @param width integer in pixels defining the width of the \code{div} container.
+#' @param height integer in pixels defining the height of the \code{div} container.
+#' @param elementId character to specify valid \code{CSS} id of the
+#'          htmlwidget for special situations in which you want a non-random
+#'          identifier.
+#'
 #' @import htmlwidgets
 #'
 #' @export
 #' @example inst/examples/examples_reactjson.R
 reactjson <- function(
-  json = list(),
+  listdata = list(),
   width = NULL, height = NULL, elementId = NULL
 ) {
 
-  if(!require(reactR)){
+  if(!requireNamespace("reactR")){
     stop("please devtools::install_github('timelyportfolio/reactR')", call.=FALSE)
   }
 
   # forward options using x
   x = list(
-    json = json
+    data = listdata
   )
 
   # create widget

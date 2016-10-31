@@ -4,14 +4,29 @@
 \alias{reactjson}
 \title{Edit R Data with 'react-json'}
 \usage{
-reactjson(json = list(), width = NULL, height = NULL, elementId = NULL)
+reactjson(listdata = list(), width = NULL, height = NULL,
+  elementId = NULL)
+}
+\arguments{
+\item{listdata}{\code{list} or \code{String} data to view.  Although designed for \code{lists}, \code{listdata} can
+be any data source that can be rendered into \code{JSON} with \code{jsonlite}.  Alternately,
+\code{listdata} could be a \code{String} of valid \code{JSON}.  This might be helpful
+when dealing with an API response.}
+
+\item{width}{integer in pixels defining the width of the \code{div} container.}
+
+\item{height}{integer in pixels defining the height of the \code{div} container.}
+
+\item{elementId}{character to specify valid \code{CSS} id of the
+htmlwidget for special situations in which you want a non-random
+identifier.}
 }
 \description{
 Edit R Data with 'react-json'
 }
 \examples{
-# requires dev version of listviewer
-# devtools::install_github("timelyportfolio/listviewer@feature/react-json")
+\dontrun{
+
 library(listviewer)
 
 # use reactR for React dependencies
@@ -37,5 +52,7 @@ shinyApp(
     )
   }
 )
+
+}
 }
 

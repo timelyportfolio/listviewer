@@ -60,24 +60,7 @@ jsonedit <- function(
     , elementId = NULL
 ) {
 
-  # to avoid toJSON keep_vec_names warnings
-  #  with named vectors
-  #  convert named vectors to list
-  #  see https://github.com/timelyportfolio/listviewer/issues/10
-  named_vec2list <- function(listx){
-    if(
-      !inherits(listx,"list") &&
-      is.null(dim(listx)) &&
-      !is.null(names(listx))
-    ){
-      listx <- as.list(listx)
-    }
-    return(listx)
-  }
-
-  if(inherits(listdata,"list")){
-    listdata <- rapply(listdata,named_vec2list,how="list")
-  }
+  listdata <- list_proper_form(listdata)
 
   # forward options using x
   x = list(
