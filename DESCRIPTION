@@ -6,7 +6,7 @@ Date: 2016-10-31
 Authors@R: c(
     person("Jos", "de Jong", role = c("aut", "cph"), comment = "jsoneditor.js library in htmlwidgets/jsoneditor, http://github.com/josdejong/jsoneditor/" ),
     person("Javier"," Marquez", role = c("aut", "cph"), comment = "react-json library in htmlwidgets/react-json, https://github.com/arqex/reactjson"),
-    person("Kenton","Russell", role = c("aut","cre"), comment = "R interface" , email = "kent.russell@timelyportfolio.com" )
+    person("Kent","Russell", role = c("aut","cre"), comment = "R interface" , email = "kent.russell@timelyportfolio.com" )
   )
 Maintainer: Kent Russell<kent.russell@timelyportfolio.com>
 Description: R lists, especially nested lists, can be very difficult to
