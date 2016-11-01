@@ -23,6 +23,8 @@ reactjson <- function(
     stop("please devtools::install_github('timelyportfolio/reactR')", call.=FALSE)
   }
 
+  listdata <- list_proper_form(listdata)
+
   # forward options using x
   x = list(
     data = listdata
