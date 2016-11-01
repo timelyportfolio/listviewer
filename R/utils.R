@@ -19,6 +19,7 @@ list_proper_form <- function(listdata){
   if(inherits(listdata,"list")){
     listdata <- rapply(listdata,named_vec2list,how="list")
   }
+  listdata
 }
 
 #' Recurse Over Nested Lists
