@@ -1,7 +1,8 @@
 # listviewer 1.4.0
 
 * add `elementId` to the `jsonedit` function
-* update `react-json` to [`0.2.1`]
+* update `react-json` to [`0.2.1`](https://github.com/arqex/react-json/releases/tag/0.2.1)
+* add helper `number_unnamed` function (see [issue](https://github.com/timelyportfolio/listviewer/issues/18))
 
 # listviewer 1.3
 

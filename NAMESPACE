@@ -3,6 +3,7 @@
 export(jsonedit)
 export(jsoneditOutput)
 export(jsonedit_gadget)
+export(number_unnamed)
 export(reactjson)
 export(reactjsonOutput)
 export(renderJsonedit)
