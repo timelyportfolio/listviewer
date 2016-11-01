@@ -47,7 +47,7 @@ if(is.list(l) && length(l)>0){
 
 #' @keywords internal
 add_number_names <- function(l){
-  if(length(l)>0 && is.null(names(l))){
+  if(length(l)>1 && is.null(names(l))){
     names(l) <- seq_len(length(l))
   }
   l
