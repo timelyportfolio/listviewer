@@ -1,3 +1,8 @@
+Third submission:
+
+* add `Additional_repositories` field in DESCRIPTION for reactR;
+    thanks Uwe!
+
 Resubmit with following corrections:
 
 * replace \code{str()} with  'str()'  in DESCRIPTION

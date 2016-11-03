@@ -26,4 +26,6 @@ Suggests:
   rstudioapi
 Enhances:
   reactR
+Additional_repositories:
+  https://github.com/timelyportfolio/reactR
 RoxygenNote: 5.0.1
