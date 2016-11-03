@@ -1,3 +1,9 @@
+Fourth submission:
+
+* remove `Additional_repositories` field and instead note location
+    of `reactR` in the DESCRIPTION `Description` field; thanks Uwe!;
+    sorry for so much trouble
+
 Third submission:
 
 * add `Additional_repositories` field in DESCRIPTION for reactR;
