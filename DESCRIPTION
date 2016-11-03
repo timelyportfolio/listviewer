@@ -12,7 +12,7 @@ Description: R lists, especially nested lists, can be very difficult to
     visualize or represent. Sometimes 'str()' is not enough, so this suite of
     htmlwidgets is designed to help see, understand, and maybe even modify your R
     lists.  The function 'reactjson()' requires a non-CRAN package
-    'reactR' that can be installed from https://github.com/timelyportfolio/reactR.
+    'reactR' that can be installed from <https://github.com/timelyportfolio/reactR>.
 License: MIT + file LICENSE
 LazyData: TRUE
 URL: https://github.com/timelyportfolio/listviewer
