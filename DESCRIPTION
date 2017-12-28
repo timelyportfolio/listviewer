@@ -1,18 +1,18 @@
 Package: listviewer
 Type: Package
 Title: 'htmlwidget' for Interactive Views of R Lists
-Version: 1.4.0
-Date: 2016-10-31
+Version: 2.0.0
+Date: 2017-12-27
 Authors@R: c(
     person("Jos", "de Jong", role = c("aut", "cph"), comment = "jsoneditor.js library in htmlwidgets/jsoneditor, http://github.com/josdejong/jsoneditor/" ),
-    person("Javier"," Marquez", role = c("aut", "cph"), comment = "react-json library in htmlwidgets/react-json, https://github.com/arqex/reactjson"),
+    person("Mac"," Gainer", role = c("aut", "cph"), comment = "react-json-view library in htmlwidgets/react-json, https://github.com/mac-s-g/react-json-view"),
     person("Kent","Russell", role = c("aut","cre"), comment = "R interface" , email = "kent.russell@timelyportfolio.com" )
   )
 Description: R lists, especially nested lists, can be very difficult to
     visualize or represent. Sometimes 'str()' is not enough, so this suite of
     htmlwidgets is designed to help see, understand, and maybe even modify your R
-    lists.  The function 'reactjson()' requires a non-CRAN package
-    'reactR' that can be installed from <https://github.com/timelyportfolio/reactR>.
+    lists.  The function 'reactjson()' requires a package
+    'reactR' that can be installed from CRAN or <https://github.com/timelyportfolio/reactR>.
 License: MIT + file LICENSE
 LazyData: TRUE
 URL: https://github.com/timelyportfolio/listviewer

@@ -36,6 +36,7 @@ reactjson <- function(
     x = x,
     width = width,
     height = height,
+    sizingPolicy = htmlwidgets::sizingPolicy(viewer.suppress=TRUE),
     package = 'listviewer',
     elementId = elementId
   )
@@ -43,11 +44,10 @@ reactjson <- function(
   hw$dependencies <- list(
     reactR::html_dependency_react(),
     htmltools::htmlDependency(
-      name = "react-json",
-      version = "0.2.1",
+      name = "react-json-view",
+      version = "0.1.0",
       src = system.file("htmlwidgets/reactjson/dist", package="listviewer"),
-      script = "Json.min.js",
-      stylesheet = c("react-json.css")
+      script = "main.js"
     )
   )
   hw

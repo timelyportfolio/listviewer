@@ -14,10 +14,13 @@ HTMLWidgets.widget({
 
           ReactDOM.render(
             React.createElement(
-              Json,
+              reactJsonView.default,
               {
-                value: (typeof(x.data)==="string") ? JSON.parse(x.data) : x.data,
-                onChange: logChange
+                src: (typeof(x.data)==="string") ? JSON.parse(x.data) : x.data,
+                name: null,
+                onAdd: logChange,
+                onEdit: logChange,
+                onDelete: logChange
               }
             ),
             document.body
