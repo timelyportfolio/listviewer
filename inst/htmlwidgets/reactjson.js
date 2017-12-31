@@ -23,7 +23,7 @@ HTMLWidgets.widget({
                 onDelete: logChange
               }
             ),
-            document.body
+            el
           );
 
           function logChange( value ){
