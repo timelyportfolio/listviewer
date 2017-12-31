@@ -29,4 +29,3 @@ jsonedit_gadget(
 )
 }
 }
-

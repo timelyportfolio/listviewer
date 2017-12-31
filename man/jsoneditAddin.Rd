@@ -11,4 +11,3 @@ This uses the gadget as an addin, so you can select objects then
   activate the addin in RStudio either via menu or a hotkey.
 }
 \keyword{internal}
-

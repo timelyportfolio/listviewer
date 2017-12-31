@@ -18,4 +18,3 @@ Like \code{rapply} but recurses over nested lists and
 retain \code{attributes} and \code{names}.
 }
 \keyword{internal}
-
