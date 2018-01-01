@@ -16,7 +16,7 @@
 #' @example inst/examples/examples_reactjson.R
 reactjson <- function(
   listdata = list(),
-  width = NULL, height = "100%", elementId = NULL
+  width = NULL, height = NULL, elementId = NULL
 ) {
 
   if(!requireNamespace("reactR")){

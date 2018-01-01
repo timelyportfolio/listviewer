@@ -12,6 +12,9 @@ HTMLWidgets.widget({
 
       renderValue: function(x) {
 
+          // add scroll to widget container for better sizing behavior
+          el.style.overflow = "auto";
+
           ReactDOM.render(
             React.createElement(
               reactJsonView.default,
