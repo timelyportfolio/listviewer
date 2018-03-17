@@ -1,7 +1,7 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/listviewer)](https://cran.r-project.org/package=listviewer) [![Travis-CI Build Status](https://travis-ci.org/timelyportfolio/listviewer.svg?branch=master)](https://travis-ci.org/timelyportfolio/listviewer)
 
 # listviewer
-A package of R htmlwidgets to interactively view *and maybe modify* `lists`.  As of now, `listviewer` provides just one interface to [`jsoneditor`](https://github.com/josdejong/jsoneditor).  `listviewer` is designed though to support multiple interfaces.
+A package of R htmlwidgets to interactively view *and maybe modify* `lists`.  As of now, `listviewer` provides an interface to [`jsoneditor`](https://github.com/josdejong/jsoneditor) and [`react-json-view`](https://github.com/mac-s-g/react-json-view).  `listviewer` is designed to support multiple interfaces.
 
 ### install
 
@@ -79,6 +79,30 @@ url_path %>>%
   content( as = "text") %>>%
   jsonedit
 ```
+
+
+### reactjson
+
+[`react-json-view`](https://github.com/mac-s-g/react-json-view) is another very nice `JSON` interactive editor.  We even get copy/paste!  All of the above examples should also work with `reactjson`.
+
+```r
+# using the data from the jsoneditor simple example
+#  in R list form
+
+library(listviewer)
+
+reactjson(
+  list(
+    array = c(1,2,3)
+    ,boolean = TRUE
+    ,null = NULL
+    ,number = 123
+    ,object = list( a="b", c="d" )
+    ,string = "Hello World"
+  )
+)
+```
+
 
 ### Shiny example
 

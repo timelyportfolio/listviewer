@@ -3,3 +3,4 @@
 ^CONDUCT\.md$
 ^\.travis\.yml$
 ^cran-comments\.md$
+^docs$
