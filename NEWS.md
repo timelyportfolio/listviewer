@@ -1,3 +1,7 @@
+# listviewer 2.0.0
+
+* change `reactjson()` to use [`react-json-view`](https://github.com/mac-s-g/react-json-view) instead of [`react-json`](https://github.com/arqex/react-json)
+
 # listviewer 1.4.0
 
 * add `elementId` to the `jsonedit` function
