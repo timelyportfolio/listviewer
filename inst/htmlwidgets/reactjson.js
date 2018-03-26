@@ -30,8 +30,7 @@ HTMLWidgets.widget({
           );
 
           function logChange( value ){
-            console.log( value );
-            if(typeof(Shiny) !== "undefined"){
+            if(typeof(Shiny) !== "undefined" && Shiny.onInputChange){
               Shiny.onInputChange(el.id + "_change", {value:value});
             }
           }
