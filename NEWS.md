@@ -1,3 +1,8 @@
+# listviewer 2.1.0
+
+* update `jsoneditor` to [5.24.6](https://github.com/josdejong/jsoneditor/releases/tag/v5.24.6)
+* update `react-json-view` to 2.5.7
+
 # listviewer 2.0.0
 
 * change `reactjson()` to use [`react-json-view`](https://github.com/mac-s-g/react-json-view) instead of [`react-json`](https://github.com/arqex/react-json)
