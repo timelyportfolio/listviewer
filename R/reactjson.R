@@ -52,7 +52,7 @@ reactjson <- function(
     reactR::html_dependency_react(),
     htmltools::htmlDependency(
       name = "react-json-view",
-      version = "1.16.1",
+      version = "2.5.7",
       src = system.file("htmlwidgets/reactjson/dist", package="listviewer"),
       script = "main.js",
       all_files = FALSE
