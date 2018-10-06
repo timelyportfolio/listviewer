@@ -2,6 +2,7 @@
 
 * update `jsoneditor` to [5.24.6](https://github.com/josdejong/jsoneditor/releases/tag/v5.24.6)
 * update `react-json-view` to 2.5.7
+* add full set of `props` for `react-json-view`
 
 # listviewer 2.0.0
 
