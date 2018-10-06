@@ -2,7 +2,7 @@ Package: listviewer
 Type: Package
 Title: 'htmlwidget' for Interactive Views of R Lists
 Version: 2.1.0
-Date: 2018-09-25
+Date: 2018-10-06
 Authors@R: c(
     person("Jos", "de Jong", role = c("aut", "cph"), comment = "jsoneditor.js library in htmlwidgets/jsoneditor, http://github.com/josdejong/jsoneditor/" ),
     person("Mac"," Gainer", role = c("aut", "cph"), comment = "react-json-view library in htmlwidgets/react-json, https://github.com/mac-s-g/react-json-view"),

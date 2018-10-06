@@ -90,8 +90,13 @@
     <p>Edit R Data with 'react-json'</p>
     
 
-    <pre class="usage"><span class='fu'>reactjson</span>(<span class='kw'>listdata</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>reactjson</span>(<span class='kw'>listdata</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"root"</span>, <span class='kw'>theme</span> <span class='kw'>=</span> <span class='st'>"rjv-default"</span>,
+  <span class='kw'>iconStyle</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"circle"</span>, <span class='st'>"triangle"</span>, <span class='st'>"square"</span>), <span class='kw'>indentWidth</span> <span class='kw'>=</span> <span class='fl'>4</span>,
+  <span class='kw'>collapsed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>collapseStringsAfterLength</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>groupArraysAfterLength</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>enableClipboard</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>displayObjectSize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>displayDataTypes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>onEdit</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>onAdd</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>onDelete</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>onSelect</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>sortKeys</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -102,6 +107,75 @@
 be any data source that can be rendered into <code>JSON</code> with <code>jsonlite</code>.  Alternately,
 <code>listdata</code> could be a <code>String</code> of valid <code>JSON</code>.  This might be helpful
 when dealing with an API response.</p></td>
+    </tr>
+    <tr>
+      <th>name</th>
+      <td><p><code>string</code> name of the root node.  Default is <code>"root"</code>.</p></td>
+    </tr>
+    <tr>
+      <th>theme</th>
+      <td><p><code>string</code> name of the theme.  Default is <code>"rjv-default"</code>.</p></td>
+    </tr>
+    <tr>
+      <th>iconStyle</th>
+      <td><p><code>string</code> shape for the expand/collapse icon. Options are circle,
+triangle, and square with the default as <code>"circle"</code>.</p></td>
+    </tr>
+    <tr>
+      <th>indentWidth</th>
+      <td><p><code>integer</code> for the indent width for nested objects. Default is <code>4</code>.</p></td>
+    </tr>
+    <tr>
+      <th>collapsed</th>
+      <td><p><code>logical</code> or <code>integer</code>.  Use <code>logical</code> to expand/collapse all nodes.
+Use <code>integer</code> to specify the depth at which to collapse.</p></td>
+    </tr>
+    <tr>
+      <th>collapseStringsAfterLength</th>
+      <td><p><code>integer</code> for the length at which strings will be cut off
+Collapsed strings are followed by an ellipsis. String content can be expanded and
+collapsed by clicking on the string value.</p></td>
+    </tr>
+    <tr>
+      <th>groupArraysAfterLength</th>
+      <td><p><code>integer</code> for the count at which arrays will be displayed in groups.
+Groups are displayed with bracket notation and can be expanded and collapsed.
+by clicking on the brackets.</p></td>
+    </tr>
+    <tr>
+      <th>enableClipboard</th>
+      <td><p><code>logical</code> whether the user can copy objects and arrays
+clicking on the clipboard icon. Copy callbacks are supported. Default is <code>TRUE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>displayObjectSize</th>
+      <td><p><code>logical</code> whether or not objects and arrays are labeled with size.
+Default is <code>TRUE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>displayDataTypes</th>
+      <td><p><code>logical</code> whether or not data type labels prefix values.
+Default is <code>TRUE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>onEdit</th>
+      <td><p><code><a href='http://www.rdocumentation.org/packages/htmlwidgets/topics/JS'>htmlwidgets::JS</a></code> function for callback to perform on edit.</p></td>
+    </tr>
+    <tr>
+      <th>onAdd</th>
+      <td><p><code><a href='http://www.rdocumentation.org/packages/htmlwidgets/topics/JS'>htmlwidgets::JS</a></code> function for callback to perform on add.</p></td>
+    </tr>
+    <tr>
+      <th>onDelete</th>
+      <td><p><code><a href='http://www.rdocumentation.org/packages/htmlwidgets/topics/JS'>htmlwidgets::JS</a></code> function for callback to perform on delete.</p></td>
+    </tr>
+    <tr>
+      <th>onSelect</th>
+      <td><p><code><a href='http://www.rdocumentation.org/packages/htmlwidgets/topics/JS'>htmlwidgets::JS</a></code> function for callback to perform on select.</p></td>
+    </tr>
+    <tr>
+      <th>sortKeys</th>
+      <td><p><code>logical</code> whether or not to sort object keys.  Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>width</th>

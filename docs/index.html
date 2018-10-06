@@ -140,7 +140,7 @@ url_path <span class="op">%&gt;&gt;%</span><span class="st"> </span>
 <div id="shiny-example" class="section level3">
 <h3 class="hasAnchor">
 <a href="#shiny-example" class="anchor"></a>Shiny example</h3>
-<p><code>listviewer</code> works with <code>Shiny</code> but the implementation is crude and likely to change. Here is an example. If you really want to use it, I would recommend <code>debouncing</code> the <code>change</code> callback.</p>
+<p><code>listviewer</code> works with <code>Shiny</code> but the implementation is crude and likely to change for <code>jsonedit</code> while <code>reactjson</code> integration is much better. If you really want to use <code>jsonedit</code> with <code>Shiny</code>, I would recommend <code>debouncing</code> the <code>change</code> callback. Here are examples with each.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
 <span class="kw">library</span>(listviewer)
 
@@ -162,6 +162,29 @@ server &lt;-<span class="st"> </span><span class="cf">function</span>(input,outp
 <span class="st">      }'</span>)
     )
     
+  })
+}
+
+<span class="kw">runApp</span>( <span class="kw">list</span>( <span class="dt">ui =</span> ui, <span class="dt">server =</span> server ) )</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
+<span class="kw">library</span>(listviewer)
+
+<span class="co"># put some data in environment so it will show up</span>
+<span class="kw">data</span>(mtcars)
+
+ui &lt;-<span class="st"> </span><span class="kw">shinyUI</span>(
+  <span class="kw">fluidPage</span>(
+    <span class="kw"><a href="reference/reactjson-shiny.html">reactjsonOutput</a></span>( <span class="st">"rjed"</span> )
+  )
+)
+
+server &lt;-<span class="st"> </span><span class="cf">function</span>(input,output){
+  output<span class="op">$</span>rjed &lt;-<span class="st"> </span><span class="kw"><a href="reference/reactjson-shiny.html">renderReactjson</a></span>({
+    <span class="kw"><a href="reference/reactjson.html">reactjson</a></span>( <span class="kw">as.list</span>( .GlobalEnv ) )
+  })
+  
+  <span class="kw">observeEvent</span>(input<span class="op">$</span>rjed_edit, {
+    <span class="kw">str</span>(input<span class="op">$</span>rjed_edit, <span class="dt">max.level=</span><span class="dv">2</span>)
   })
 }
 

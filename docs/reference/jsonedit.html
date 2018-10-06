@@ -152,16 +152,18 @@ identifier.</p></td>
        ,<span class='kw'>object</span> <span class='kw'>=</span> <span class='fu'>list</span>( <span class='kw'>a</span><span class='kw'>=</span><span class='st'>"b"</span>, <span class='kw'>c</span><span class='kw'>=</span><span class='st'>"d"</span> )
        ,<span class='kw'>string</span> <span class='kw'>=</span> <span class='st'>"Hello World"</span>
      )
-   )</div><div class='output co'>#&gt; <span class='error'>Error in yaml.load(readLines(con), error.label = error.label, ...): argument "error.label" is missing, with no default</span></div><div class='input'>
+   )
+
    <span class='co'># jsonedit also works with a JSON string</span>
    <span class='fu'>jsonedit</span>(
      <span class='st'>'{"array" : [1,2,3] , "boolean" : true, "null" : null, number = 123}'</span>
-   )</div><div class='output co'>#&gt; <span class='error'>Error in yaml.load(readLines(con), error.label = error.label, ...): argument "error.label" is missing, with no default</span></div><div class='input'>
+   )
+
    <span class='co'># also works with most data.frames</span>
-   <span class='fu'>jsonedit</span>( <span class='no'>mtcars</span> )</div><div class='output co'>#&gt; <span class='error'>Error in yaml.load(readLines(con), error.label = error.label, ...): argument "error.label" is missing, with no default</span></div><div class='input'>
+   <span class='fu'>jsonedit</span>( <span class='no'>mtcars</span> )
+
    <span class='co'># helpful interactive view of par</span>
-   <span class='fu'>jsonedit</span>( <span class='fu'>par</span>() )</div><div class='output co'>#&gt; <span class='error'>Error in yaml.load(readLines(con), error.label = error.label, ...): argument "error.label" is missing, with no default</span></div><div class='input'>
-</div></pre>
+   <span class='fu'>jsonedit</span>( <span class='fu'>par</span>() )</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
