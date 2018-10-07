@@ -4,6 +4,30 @@
 #'          be any data source that can be rendered into \code{JSON} with \code{jsonlite}.  Alternately,
 #'          \code{listdata} could be a \code{String} of valid \code{JSON}.  This might be helpful
 #'          when dealing with an API response.
+#' @param name \code{string} name of the root node.  Default is \code{"root"}.
+#' @param theme \code{string} name of the theme.  Default is \code{"rjv-default"}.
+#' @param iconStyle \code{string} shape for the expand/collapse icon. Options are circle,
+#'          triangle, and square with the default as \code{"circle"}.
+#' @param indentWidth \code{integer} for the indent width for nested objects. Default is \code{4}.
+#' @param collapsed \code{logical} or \code{integer}.  Use \code{logical} to expand/collapse all nodes.
+#'          Use \code{integer} to specify the depth at which to collapse.
+#' @param collapseStringsAfterLength \code{integer} for the length at which strings will be cut off
+#'          Collapsed strings are followed by an ellipsis. String content can be expanded and
+#'          collapsed by clicking on the string value.
+#' @param groupArraysAfterLength \code{integer} for the count at which arrays will be displayed in groups.
+#'          Groups are displayed with bracket notation and can be expanded and collapsed.
+#'          by clicking on the brackets.
+#' @param enableClipboard \code{logical} whether the user can copy objects and arrays
+#'          clicking on the clipboard icon. Copy callbacks are supported. Default is \code{TRUE}.
+#' @param displayObjectSize \code{logical} whether or not objects and arrays are labeled with size.
+#'          Default is \code{TRUE}.
+#' @param displayDataTypes \code{logical} whether or not data type labels prefix values.
+#'          Default is \code{TRUE}.
+#' @param onEdit \code{htmlwidgets::JS} function for callback to perform on edit.
+#' @param onAdd \code{htmlwidgets::JS} function for callback to perform on add.
+#' @param onDelete \code{htmlwidgets::JS} function for callback to perform on delete.
+#' @param onSelect \code{htmlwidgets::JS} function for callback to perform on select.
+#' @param sortKeys \code{logical} whether or not to sort object keys.  Default is \code{FALSE}.
 #' @param width integer in pixels defining the width of the \code{div} container.
 #' @param height integer in pixels defining the height of the \code{div} container.
 #' @param elementId character to specify valid \code{CSS} id of the
@@ -16,6 +40,21 @@
 #' @example inst/examples/examples_reactjson.R
 reactjson <- function(
   listdata = list(),
+  name = "root",
+  theme = "rjv-default",
+  iconStyle = c("circle", "triangle", "square"),
+  indentWidth = 4,
+  collapsed = FALSE,
+  collapseStringsAfterLength = FALSE,
+  groupArraysAfterLength = 100,
+  enableClipboard = TRUE,
+  displayObjectSize = TRUE,
+  displayDataTypes = TRUE,
+  onEdit = FALSE,
+  onAdd = FALSE,
+  onDelete = FALSE,
+  onSelect = FALSE,
+  sortKeys = FALSE,
   width = NULL, height = NULL, elementId = NULL
 ) {
 
@@ -27,7 +66,22 @@ reactjson <- function(
 
   # forward options using x
   x = list(
-    data = listdata
+    data = listdata,
+    name = name,
+    theme = theme,
+    iconStyle = iconStyle[1],
+    indentWidth = indentWidth,
+    collapsed = collapsed,
+    collapseStringsAfterLength = collapseStringsAfterLength,
+    groupArraysAfterLength = groupArraysAfterLength,
+    enableClipboard = enableClipboard,
+    displayObjectSize = displayObjectSize,
+    displayDataTypes = displayDataTypes,
+    onEdit = onEdit,
+    onAdd = onAdd,
+    onDelete = onDelete,
+    onSelect = onSelect,
+    sortKeys = sortKeys
   )
 
   # create widget
@@ -52,7 +106,7 @@ reactjson <- function(
     reactR::html_dependency_react(),
     htmltools::htmlDependency(
       name = "react-json-view",
-      version = "1.16.1",
+      version = "2.5.7",
       src = system.file("htmlwidgets/reactjson/dist", package="listviewer"),
       script = "main.js",
       all_files = FALSE

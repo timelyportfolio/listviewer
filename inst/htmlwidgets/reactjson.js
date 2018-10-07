@@ -20,18 +20,29 @@ HTMLWidgets.widget({
               reactJsonView.default,
               {
                 src: (typeof(x.data)==="string") ? JSON.parse(x.data) : x.data,
-                name: null,
-                onAdd: logChange,
-                onEdit: logChange,
-                onDelete: logChange
+                name: x.name,
+                theme: x.theme,
+                iconStyle: x.iconStyle,
+                indentWidth: x.indentWidth,
+                collapsed: x.collapsed,
+                collapseStringsAfterLength: x.collapseStringsAfterLength,
+                groupArraysAfterLength: x.groupArraysAfterLength,
+                enableClipboard: x.enableClipboard,
+                displayObjectSize: x.displayObjectSize,
+                displayDataTypes: x.displayDataTypes,
+                onEdit: x.onEdit ? x.onEdit : function(value) {logChange(value,"edit")},
+                onAdd: x.onAdd ? x.onAdd : function(value) {logChange(value,"add")},
+                onDelete: x.onDelete ? x.onDelete : function(value) {logChange(value,"delete")},
+                onSelect: x.onSelect ? x.onSelect : function(value) {logChange(value,"select")},
+                sortKeys: x.sortKeys
               }
             ),
             el
           );
 
-          function logChange( value ){
+          function logChange( value, eventname ){
             if(typeof(Shiny) !== "undefined" && Shiny.onInputChange){
-              Shiny.onInputChange(el.id + "_change", {value:value});
+              Shiny.onInputChange(el.id + "_" + eventname, {value:value});
             }
           }
 

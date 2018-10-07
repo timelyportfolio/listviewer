@@ -106,7 +106,7 @@ reactjson(
 
 ### Shiny example
 
-`listviewer` works with `Shiny` but the implementation is crude and likely to change.  Here is an example.  If you really want to use it, I would recommend `debouncing` the `change` callback.
+`listviewer` works with `Shiny` but the implementation is crude and likely to change for `jsonedit` while `reactjson` integration is much better.  If you really want to use `jsonedit` with `Shiny`, I would recommend `debouncing` the `change` callback.  Here are examples with each.
 
 ```r
 library(shiny)
@@ -130,6 +130,33 @@ server <- function(input,output){
       }')
     )
     
+  })
+}
+
+runApp( list( ui = ui, server = server ) )
+
+```
+
+```r
+library(shiny)
+library(listviewer)
+
+# put some data in environment so it will show up
+data(mtcars)
+
+ui <- shinyUI(
+  fluidPage(
+    reactjsonOutput( "rjed" )
+  )
+)
+
+server <- function(input,output){
+  output$rjed <- renderReactjson({
+    reactjson( as.list( .GlobalEnv ) )
+  })
+  
+  observeEvent(input$rjed_edit, {
+    str(input$rjed_edit, max.level=2)
   })
 }
 
