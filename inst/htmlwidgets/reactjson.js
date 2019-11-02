@@ -30,10 +30,10 @@ HTMLWidgets.widget({
                 enableClipboard: x.enableClipboard,
                 displayObjectSize: x.displayObjectSize,
                 displayDataTypes: x.displayDataTypes,
-                onEdit: x.onEdit ? x.onEdit : function(value) {logChange(value,"edit")},
-                onAdd: x.onAdd ? x.onAdd : function(value) {logChange(value,"add")},
-                onDelete: x.onDelete ? x.onDelete : function(value) {logChange(value,"delete")},
-                onSelect: x.onSelect ? x.onSelect : function(value) {logChange(value,"select")},
+                onEdit: x.onEdit ? function(value) {logChange(value,"edit")} : x.onEdit,
+                onAdd: x.onAdd ? function(value) {logChange(value,"add")} : x.onAdd,
+                onDelete: x.onDelete ? function(value) {logChange(value,"delete")} : x.onDelete,
+                onSelect: x.onSelect ? function(value) {logChange(value,"select")} : x.onSelect,
                 sortKeys: x.sortKeys
               }
             ),
