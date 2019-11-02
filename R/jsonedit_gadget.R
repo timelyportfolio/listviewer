@@ -13,6 +13,14 @@
 jsonedit_gadget <- function(..., height = NULL, width = NULL) {
   # modeled after chemdoodle gadget
   #  https://github.com/zachcp/chemdoodle/blob/master/R/chemdoodle_sketcher_gadgets.R
+  if(interactive()) {
+    if(!requireNamespace("miniUI")) {
+      userChoice <- readline(prompt = "The package \"miniUI\" is required but not installed. Do you wish to install it? (y/n or ENTER/ESC):")
+      if(tolower(userChoice) %in% c("y", "", "yes")) {
+        install.packages("miniUI") #shiny is also installed with miniUI
+      }
+    }
+  }
   stopifnot(requireNamespace("miniUI"), requireNamespace("shiny"))
   ui <- miniUI::miniPage(
     miniUI::miniContentPanel(jsonedit(...), height=NULL, width=NULL),
