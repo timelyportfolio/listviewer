@@ -2,6 +2,7 @@
 * local Windows 10 install, R 3.4.3
 * ubuntu (on travis-ci), R 3.5.1
 * rhub check_for_cran
+* winbuilder
 
 ## R CMD check results
 
