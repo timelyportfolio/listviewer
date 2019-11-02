@@ -17,7 +17,7 @@ jsonedit_gadget <- function(..., height = NULL, width = NULL) {
     if(!requireNamespace("miniUI")) {
       userChoice <- readline(prompt = "The package \"miniUI\" is required but not installed. Do you wish to install it? (y/n or ENTER/ESC):")
       if(tolower(userChoice) %in% c("y", "", "yes")) {
-        install.packages("miniUI") #shiny is also installed with miniUI
+        utils::install.packages("miniUI") #shiny is also installed with miniUI
       }
     }
   }
