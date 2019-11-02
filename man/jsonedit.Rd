@@ -4,8 +4,9 @@
 \alias{jsonedit}
 \title{View \code{Lists} with \code{'jsoneditor'}}
 \usage{
-jsonedit(listdata = NULL, mode = "tree", modes = c("code", "form", "text",
-  "tree", "view"), ..., width = NULL, height = NULL, elementId = NULL)
+jsonedit(listdata = NULL, mode = "tree", modes = c("code", "form",
+  "text", "tree", "view"), ..., width = NULL, height = NULL,
+  elementId = NULL)
 }
 \arguments{
 \item{listdata}{\code{list} or \code{String} data to view.  Although designed for \code{lists}, \code{listdata} can

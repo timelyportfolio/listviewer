@@ -23,10 +23,11 @@
 #'          Default is \code{TRUE}.
 #' @param displayDataTypes \code{logical} whether or not data type labels prefix values.
 #'          Default is \code{TRUE}.
-#' @param onEdit \code{htmlwidgets::JS} function for callback to perform on edit.
-#' @param onAdd \code{htmlwidgets::JS} function for callback to perform on add.
-#' @param onDelete \code{htmlwidgets::JS} function for callback to perform on delete.
-#' @param onSelect \code{htmlwidgets::JS} function for callback to perform on select.
+#' @param onEdit,onAdd,onDelete,onSelect \code{htmlwidgets::JS} or \code{logical}
+#'          to control behavior on edit, add, delete, and select.  If \code{htmlwidgets::JS}
+#'          function is provided, then the function will be performed on each event.  If
+#'          \code{logical} then \code{TRUE} means that the event will be passed to Shiny and
+#'          \code{FALSE} will disable the behavior.  The default is \code{TRUE}.
 #' @param sortKeys \code{logical} whether or not to sort object keys.  Default is \code{FALSE}.
 #' @param width integer in pixels defining the width of the \code{div} container.
 #' @param height integer in pixels defining the height of the \code{div} container.
@@ -50,10 +51,10 @@ reactjson <- function(
   enableClipboard = TRUE,
   displayObjectSize = TRUE,
   displayDataTypes = TRUE,
-  onEdit = FALSE,
-  onAdd = FALSE,
-  onDelete = FALSE,
-  onSelect = FALSE,
+  onEdit = TRUE,
+  onAdd = TRUE,
+  onDelete = TRUE,
+  onSelect = TRUE,
   sortKeys = FALSE,
   width = NULL, height = NULL, elementId = NULL
 ) {
@@ -106,7 +107,7 @@ reactjson <- function(
     reactR::html_dependency_react(),
     htmltools::htmlDependency(
       name = "react-json-view",
-      version = "2.5.7",
+      version = "1.19.1",
       src = system.file("htmlwidgets/reactjson/dist", package="listviewer"),
       script = "main.js",
       all_files = FALSE

@@ -1,3 +1,9 @@
+# listviewer 3.0.0
+
+*API Changes*
+- `onEdit`, `onAdd`, `onDelete`, and `onSelect` changed to allow disable.  See [pull 32](https://github.com/timelyportfolio/listviewer/pull/32).  The default `TRUE` now will
+pass the event to Shiny if in Shiny context.
+
 # listviewer 2.1.0
 
 * update `jsoneditor` to [5.24.6](https://github.com/josdejong/jsoneditor/releases/tag/v5.24.6)

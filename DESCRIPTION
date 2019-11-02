@@ -1,8 +1,8 @@
 Package: listviewer
 Type: Package
 Title: 'htmlwidget' for Interactive Views of R Lists
-Version: 2.1.1
-Date: 2018-10-06
+Version: 3.0.0
+Date: 2018-11-02
 Authors@R: c(
     person("Jos", "de Jong", role = c("aut", "cph"), comment = "jsoneditor.js library in htmlwidgets/jsoneditor, http://github.com/josdejong/jsoneditor/" ),
     person("Mac"," Gainer", role = c("aut", "cph"), comment = "react-json-view library in htmlwidgets/react-json, https://github.com/mac-s-g/react-json-view"),
@@ -27,4 +27,4 @@ Suggests:
   rstudioapi
 Enhances:
   reactR
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1

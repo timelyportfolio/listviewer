@@ -8,8 +8,8 @@ reactjson(listdata = list(), name = "root", theme = "rjv-default",
   iconStyle = c("circle", "triangle", "square"), indentWidth = 4,
   collapsed = FALSE, collapseStringsAfterLength = FALSE,
   groupArraysAfterLength = 100, enableClipboard = TRUE,
-  displayObjectSize = TRUE, displayDataTypes = TRUE, onEdit = FALSE,
-  onAdd = FALSE, onDelete = FALSE, onSelect = FALSE, sortKeys = FALSE,
+  displayObjectSize = TRUE, displayDataTypes = TRUE, onEdit = TRUE,
+  onAdd = TRUE, onDelete = TRUE, onSelect = TRUE, sortKeys = FALSE,
   width = NULL, height = NULL, elementId = NULL)
 }
 \arguments{
@@ -47,13 +47,11 @@ Default is \code{TRUE}.}
 \item{displayDataTypes}{\code{logical} whether or not data type labels prefix values.
 Default is \code{TRUE}.}
 
-\item{onEdit}{\code{htmlwidgets::JS} function for callback to perform on edit.}
-
-\item{onAdd}{\code{htmlwidgets::JS} function for callback to perform on add.}
-
-\item{onDelete}{\code{htmlwidgets::JS} function for callback to perform on delete.}
-
-\item{onSelect}{\code{htmlwidgets::JS} function for callback to perform on select.}
+\item{onEdit, onAdd, onDelete, onSelect}{\code{htmlwidgets::JS} or \code{logical}
+to control behavior on edit, add, delete, and select.  If \code{htmlwidgets::JS}
+function is provided, then the function will be performed on each event.  If
+\code{logical} then \code{TRUE} means that the event will be passed to Shiny and
+\code{FALSE} will disable the behavior.  The default is \code{TRUE}.}
 
 \item{sortKeys}{\code{logical} whether or not to sort object keys.  Default is \code{FALSE}.}
 
