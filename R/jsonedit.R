@@ -10,7 +10,7 @@
 #'          \code{listdata} could be a \code{String} of valid \code{JSON}.  This might be helpful
 #'          when dealing with an API response.
 #' @param mode \code{string} for the initial view from \code{modes}.  \code{'tree'} is the default.
-#' @param modes \code{string} \code{c('code', 'form', 'text', 'tree', 'view')} will be the default, since
+#' @param modes \code{string} \code{c('tree', 'text', 'table')} will be the default, since
 #'          these are all the modes currently supported by \code{jsoneditor}.
 #' @param ... \code{list} of other options for \code{jsoneditor}.  This is a temporary way
 #'          of trying other options in \code{jsoneditor}.  In the future, this will be eliminated

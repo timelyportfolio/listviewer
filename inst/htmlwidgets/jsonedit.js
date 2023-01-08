@@ -18,7 +18,13 @@ HTMLWidgets.widget({
     el.innerHTML = "";
 
     // create our editor
-    var editor = new JSONEditor( el, x.options, (typeof(x.data)==="string") ? JSON.parse(x.data) : x.data );
+    var editor = new JSONEditor.JSONEditor({
+      target: el,
+      props: {
+        content: (typeof(x.data)==="string") ? {text: x.data} : {json: x.data},
+        ...x.options
+      }
+    });
 
     // use expando property to store editor for change callback potential
     instance.editor = editor;
