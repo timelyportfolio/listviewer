@@ -4,9 +4,15 @@
 \alias{jsonedit}
 \title{View \code{Lists} with \code{'jsoneditor'}}
 \usage{
-jsonedit(listdata = NULL, mode = "tree", modes = c("code", "form",
-  "text", "tree", "view"), ..., width = NULL, height = NULL,
-  elementId = NULL)
+jsonedit(
+  listdata = NULL,
+  mode = "tree",
+  modes = c("text", "tree", "table"),
+  ...,
+  width = NULL,
+  height = NULL,
+  elementId = NULL
+)
 }
 \arguments{
 \item{listdata}{\code{list} or \code{String} data to view.  Although designed for \code{lists}, \code{listdata} can
@@ -16,7 +22,7 @@ when dealing with an API response.}
 
 \item{mode}{\code{string} for the initial view from \code{modes}.  \code{'tree'} is the default.}
 
-\item{modes}{\code{string} \code{c('code', 'form', 'text', 'tree', 'view')} will be the default, since
+\item{modes}{\code{string} \code{c('tree', 'text', 'table')} will be the default, since
 these are all the modes currently supported by \code{jsoneditor}.}
 
 \item{...}{\code{list} of other options for \code{jsoneditor}.  This is a temporary way

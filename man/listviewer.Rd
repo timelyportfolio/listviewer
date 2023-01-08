@@ -3,7 +3,6 @@
 \docType{package}
 \name{listviewer}
 \alias{listviewer}
-\alias{listviewer-package}
 \title{listviewer.}
 \description{
 htmlwidget for interactive views of R lists

@@ -4,13 +4,27 @@
 \alias{reactjson}
 \title{Edit R Data with 'react-json'}
 \usage{
-reactjson(listdata = list(), name = "root", theme = "rjv-default",
-  iconStyle = c("circle", "triangle", "square"), indentWidth = 4,
-  collapsed = FALSE, collapseStringsAfterLength = FALSE,
-  groupArraysAfterLength = 100, enableClipboard = TRUE,
-  displayObjectSize = TRUE, displayDataTypes = TRUE, onEdit = TRUE,
-  onAdd = TRUE, onDelete = TRUE, onSelect = TRUE, sortKeys = FALSE,
-  width = NULL, height = NULL, elementId = NULL)
+reactjson(
+  listdata = list(),
+  name = "root",
+  theme = "rjv-default",
+  iconStyle = c("circle", "triangle", "square"),
+  indentWidth = 4,
+  collapsed = FALSE,
+  collapseStringsAfterLength = FALSE,
+  groupArraysAfterLength = 100,
+  enableClipboard = TRUE,
+  displayObjectSize = TRUE,
+  displayDataTypes = TRUE,
+  onEdit = TRUE,
+  onAdd = TRUE,
+  onDelete = TRUE,
+  onSelect = TRUE,
+  sortKeys = FALSE,
+  width = NULL,
+  height = NULL,
+  elementId = NULL
+)
 }
 \arguments{
 \item{listdata}{\code{list} or \code{String} data to view.  Although designed for \code{lists}, \code{listdata} can

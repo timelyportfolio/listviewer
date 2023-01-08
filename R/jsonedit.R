@@ -53,7 +53,7 @@
 jsonedit <- function(
     listdata = NULL
     , mode = 'tree'
-    , modes = c('code', 'form', 'text', 'tree', 'view')
+    , modes = c('text', 'tree', 'table')
     , ...
     , width = NULL
     , height = NULL
