@@ -23,19 +23,18 @@ jsonedit_gadget <- function(..., height = NULL, width = NULL) {
   }
   stopifnot(requireNamespace("miniUI"), requireNamespace("shiny"))
   ui <- miniUI::miniPage(
-    miniUI::miniContentPanel(jsonedit(...), height=NULL, width=NULL),
+    miniUI::miniContentPanel(
+      jsonedit(
+        ...,
+        onChange = htmlwidgets::JS('function(after, before, patch) {
+          Shiny.onInputChange("jsoneditordata", after.json);
+        }')
+      ),
+      height=NULL,
+      width=NULL
+    ),
 
-    miniUI::gadgetTitleBar("Edit Data", right = miniUI::miniTitleBarButton("done", "Done", primary = TRUE)),
-
-    htmltools::tags$script('
-document.getElementById("done").onclick = function() {
-  var listdata = JSON.parse(
-    HTMLWidgets.find(".jsonedit").editor.getText()
-  );
-  Shiny.onInputChange("jsoneditordata", listdata);
-};
-'
-    )
+    miniUI::gadgetTitleBar("Edit Data", right = miniUI::miniTitleBarButton("done", "Done", primary = TRUE))
   )
 
   server <- function(input, output, session) {

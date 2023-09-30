@@ -10,7 +10,7 @@
 #'          \code{listdata} could be a \code{String} of valid \code{JSON}.  This might be helpful
 #'          when dealing with an API response.
 #' @param mode \code{string} for the initial view from \code{modes}.  \code{'tree'} is the default.
-#' @param modes \code{string} \code{c('code', 'form', 'text', 'tree', 'view')} will be the default, since
+#' @param modes \code{string} \code{c('tree', 'text', 'table')} will be the default, since
 #'          these are all the modes currently supported by \code{jsoneditor}.
 #' @param ... \code{list} of other options for \code{jsoneditor}.  This is a temporary way
 #'          of trying other options in \code{jsoneditor}.  In the future, this will be eliminated
@@ -38,7 +38,7 @@
 #'
 #'    # jsonedit also works with a JSON string
 #'    jsonedit(
-#'      '{"array" : [1,2,3] , "boolean" : true, "null" : null, number = 123}'
+#'      '{"array" : [1,2,3] , "boolean" : true, "null" : null, "number": 123}'
 #'    )
 #'
 #'    # also works with most data.frames
@@ -53,7 +53,7 @@
 jsonedit <- function(
     listdata = NULL
     , mode = 'tree'
-    , modes = c('code', 'form', 'text', 'tree', 'view')
+    , modes = c('text', 'tree', 'table')
     , ...
     , width = NULL
     , height = NULL

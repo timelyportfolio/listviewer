@@ -1,3 +1,7 @@
+# listviewer 4.0.0
+
+* update `jsoneditor` to completely rebuilt [0.18.7](https://github.com/josdejong/svelte-jsoneditor/releases/tag/v0.18.7)
+
 # listviewer 3.0.0
 
 *API Changes*

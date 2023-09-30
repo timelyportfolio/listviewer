@@ -1,4 +1,6 @@
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/listviewer)](https://cran.r-project.org/package=listviewer) [![Travis-CI Build Status](https://travis-ci.org/timelyportfolio/listviewer.svg?branch=master)](https://travis-ci.org/timelyportfolio/listviewer)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/listviewer)](https://cran.r-project.org/package=listviewer)
+
+[![R-CMD-check](https://github.com/timelyportfolio/listviewer/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/timelyportfolio/listviewer/actions/workflows/R-CMD-check.yaml)
 
 # listviewer
 A package of R htmlwidgets to interactively view *and maybe modify* `lists`.  As of now, `listviewer` provides an interface to [`jsoneditor`](https://github.com/josdejong/jsoneditor) and [`react-json-view`](https://github.com/mac-s-g/react-json-view).  `listviewer` is designed to support multiple interfaces.
@@ -124,9 +126,9 @@ ui <- shinyUI(
 server <- function(input,output){
   output$jsed <- renderJsonedit({
     jsonedit(
-      as.list( .GlobalEnv )
-      ,"change" = htmlwidgets::JS('function(){
-        console.log( event.currentTarget.parentNode.editor.get() )
+      jsonlite::toJSON(mtcars, auto_unbox = TRUE, data.frame = "rows")
+      ,"onChange" = htmlwidgets::JS('function(after, before, patch){
+        console.log( after.json )
       }')
     )
     
@@ -152,7 +154,7 @@ ui <- shinyUI(
 
 server <- function(input,output){
   output$rjed <- renderReactjson({
-    reactjson( as.list( .GlobalEnv ) )
+    reactjson( jsonlite::toJSON(mtcars, auto_unbox = TRUE, data.frame = "rows") )
   })
   
   observeEvent(input$rjed_edit, {
