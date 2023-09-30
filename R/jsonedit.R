@@ -38,7 +38,7 @@
 #'
 #'    # jsonedit also works with a JSON string
 #'    jsonedit(
-#'      '{"array" : [1,2,3] , "boolean" : true, "null" : null, number = 123}'
+#'      '{"array" : [1,2,3] , "boolean" : true, "null" : null, "number": 123}'
 #'    )
 #'
 #'    # also works with most data.frames

@@ -124,9 +124,9 @@ ui <- shinyUI(
 server <- function(input,output){
   output$jsed <- renderJsonedit({
     jsonedit(
-      as.list( .GlobalEnv )
-      ,"change" = htmlwidgets::JS('function(){
-        console.log( event.currentTarget.parentNode.editor.get() )
+      jsonlite::toJSON(mtcars, auto_unbox = TRUE, data.frame = "rows")
+      ,"onChange" = htmlwidgets::JS('function(after, before, patch){
+        console.log( after.json )
       }')
     )
     
@@ -152,7 +152,7 @@ ui <- shinyUI(
 
 server <- function(input,output){
   output$rjed <- renderReactjson({
-    reactjson( as.list( .GlobalEnv ) )
+    reactjson( jsonlite::toJSON(mtcars, auto_unbox = TRUE, data.frame = "rows") )
   })
   
   observeEvent(input$rjed_edit, {

@@ -1,144 +1,253 @@
-# JSON Editor
-https://github.com/josdejong/jsoneditor
-http://jsoneditoronline.org/
+# vanilla-jsoneditor
 
-Website: http://jsoneditoronline.org/
-Github: https://github.com/josdejong/jsoneditor
+A web-based tool to view, edit, format, transform, and validate JSON.
 
+Try it out: https://jsoneditoronline.org
 
-## Description
+This is the vanilla variant of `svelte-jsoneditor`, which can be used in vanilla JavaScript or frameworks like SolidJS, React, Vue, Angular.
 
-JSON Editor is a web-based tool to view, edit, and format JSON.
-It has various modes such as a tree editor, a code editor, and a plain text
-editor.
-
-The editor can be used as a component in your own web application. The library
-can be loaded as CommonJS module, AMD module, or as a regular javascript file.
-
-Supported browsers: Chrome, Firefox, Safari, Opera, Internet Explorer 9+.
-
-<img alt="json editor" src="https://raw.github.com/josdejong/jsoneditor/master/misc/jsoneditor.png">
-
-<img alt="code editor" src="https://raw.github.com/josdejong/jsoneditor/master/misc/codeeditor.png">
-
+![JSONEditor tree mode screenshot](https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_tree_mode_screenshot.png)
+![JSONEditor text mode screenshot](https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_text_mode_screenshot.png)
+![JSONEditor table mode screenshot](https://raw.githubusercontent.com/josdejong/svelte-jsoneditor/main/misc/jsoneditor_table_mode_screenshot.png)
 
 ## Features
 
-### Tree editor
-- Edit, add, move, remove, and duplicate fields and values.
-- Change type of values.
-- Sort arrays and objects.
-- Colorized code.
-- Search & highlight text in the treeview.
-- Undo and redo all actions.
-
-### Code editor
-- Format and compact JSON.
-- Colorized code (powered by Ace).
-- Inspect JSON (powered by Ace).
-
-### Text editor
-- Format and compact JSON.
-
-
-## Documentation
-
-- Documentation:
-  - [API](https://github.com/josdejong/jsoneditor/tree/master/docs/api.md)
-  - [Usage](https://github.com/josdejong/jsoneditor/tree/master/docs/usage.md)
-  - [Shortcut keys](https://github.com/josdejong/jsoneditor/tree/master/docs/shortcut_keys.md)
-- [Examples](https://github.com/josdejong/jsoneditor/tree/master/examples)
-- [Source](https://github.com/josdejong/jsoneditor)
-- [History](https://github.com/josdejong/jsoneditor/blob/master/HISTORY.md)
-
+- View and edit JSON
+- Has a low level text editor and high level tree view and table view
+- Format (beautify) and compact JSON
+- Sort, query, filter, and transform JSON
+- Repair JSON
+- JSON schema validation and pluggable custom validation
+- Color highlighting, undo/redo, search and replace
+- Utilities like a color picker and timestamp tag
+- Handles large JSON documents up to 512 MB
 
 ## Install
 
-with npm:
+Install using npm:
 
-    npm install jsoneditor
+```
+npm install vanilla-jsoneditor
+```
 
-with bower:
+Remark: for usage in a Svelte project, install `svelte-jsoneditor` instead.
 
-    bower install jsoneditor
-
-download:
-
-[http://jsoneditoronline.org/downloads/](http://jsoneditoronline.org/downloads/)
-
-
-## Use
+## Use (Browser example loading the ES module):
 
 ```html
-<!DOCTYPE HTML>
-<html>
-<head>
-    <link href="jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
-    <script src="jsoneditor/dist/jsoneditor.min.js"></script>
-</head>
-<body>
-    <div id="jsoneditor" style="width: 400px; height: 400px;"></div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>JSONEditor</title>
+  </head>
+  <body>
+    <div id="jsoneditor"></div>
 
-    <script>
-        // create the editor
-        var container = document.getElementById("jsoneditor");
-        var editor = new JSONEditor(container);
+    <script type="module">
+      import { JSONEditor } from 'vanilla-jsoneditor'
 
-        // set json
-        var json = {
-            "Array": [1, 2, 3],
-            "Boolean": true,
-            "Null": null,
-            "Number": 123,
-            "Object": {"a": "b", "c": "d"},
-            "String": "Hello World"
-        };
-        editor.set(json);
+      // Or use it through a CDN (not recommended for use in production):
+      // import { JSONEditor } from 'https://unpkg.com/vanilla-jsoneditor/index.js'
+      // import { JSONEditor } from 'https://cdn.jsdelivr.net/npm/vanilla-jsoneditor/index.js'
 
-        // get json
-        var json = editor.get();
+      let content = {
+        text: undefined,
+        json: {
+          greeting: 'Hello World'
+        }
+      }
+
+      const editor = new JSONEditor({
+        target: document.getElementById('jsoneditor'),
+        props: {
+          content,
+          onChange: (updatedContent, previousContent, { contentErrors, patchResult }) => {
+            // content is an object { json: JSONData } | { text: string }
+            console.log('onChange', { updatedContent, previousContent, contentErrors, patchResult })
+            content = updatedContent
+          }
+        }
+      })
+
+      // use methods get, set, update, and onChange to get data in or out of the editor.
+      // Use updateProps to update properties.
     </script>
-</body>
+  </body>
 </html>
 ```
 
+## Use (React example, including NextJS)
 
-## Build
+### First, create a React component to wrap the vanilla-jsoneditor
 
-The code of the JSON Editor is located in the folder `./src`. To build 
-jsoneditor:
+Depending on whether you are using JavaScript of TypeScript, create either a JSX or TSX file:
 
-- Install dependencies:
+### TypeScript:
 
-  ```
-  npm install
-  ```
+```typescript
+//
+// JSONEditorReact.tsx
+//
+import { useEffect, useRef } from 'react'
+import { JSONEditor, JSONEditorPropsOptional } from 'vanilla-jsoneditor'
 
-- Build JSON Editor:
+const JSONEditorReact: React.FC<JSONEditorPropsOptional> = (props) => {
+  const refContainer = useRef<HTMLDivElement>(null)
+  const refEditor = useRef<JSONEditor | null>(null)
 
-  ```
-  npm run build
-  ```
+  useEffect(() => {
+    // create editor
+    refEditor.current = new JSONEditor({
+      target: refContainer.current!,
+      props: {}
+    })
 
-  This will generate the files `./jsoneditor.js`, `./jsoneditor.css`, and  
-  minified versions in the root of the project.
+    return () => {
+      // destroy editor
+      if (refEditor.current) {
+        refEditor.current.destroy()
+        refEditor.current = null
+      }
+    }
+  }, [])
 
+  useEffect(() => {
+    // update props
+    if (refEditor.current) {
+      refEditor.current.updateProps(props)
+    }
+  }, [props])
 
-## Custom builds
+  return <div ref={refContainer} />
+}
 
-The source code of JSONEditor consists of CommonJS modules. JSONEditor can be bundled in a customized way using a module bundler like [browserify](http://browserify.org/) or [webpack](http://webpack.github.io/). First, install all dependencies of jsoneditor:
+export default JSONEditorReact
+```
 
-    npm install
+### JavaScript
 
-To create a custom bundle of the source code using browserify:
+```javascript
+//
+// JSONEditorReact.jsx
+//
+import { useEffect, useRef } from 'react'
+import { JSONEditor, JSONEditorPropsOptional } from 'vanilla-jsoneditor'
 
-    browserify ./index.js -o ./jsoneditor.custom.js -s JSONEditor
+const JSONEditorReact = (props) => {
+  const refContainer = useRef(null)
+  const refEditor = useRef(null)
 
-The Ace editor, used in mode `code`, accounts for about 75% of the total
-size of the library. To exclude the Ace editor from the bundle:
+  useEffect(() => {
+    // create editor
+    refEditor.current = new JSONEditor({
+      target: refContainer.current,
+      props: {}
+    })
 
-    browserify ./index.js -o ./jsoneditor.custom.js -s JSONEditor -x brace -x brace/mode/json -x brace/ext/searchbox
+    return () => {
+      // destroy editor
+      if (refEditor.current) {
+        refEditor.current.destroy()
+        refEditor.current = null
+      }
+    }
+  }, [])
 
-To minify the generated bundle, use [uglifyjs](https://github.com/mishoo/UglifyJS2):
+  // update props
+  useEffect(() => {
+    if (refEditor.current) {
+      refEditor.current.updateProps(props)
+    }
+  }, [props])
 
-    uglifyjs ./jsoneditor.custom.js -o ./jsoneditor.custom.min.js -m -c
+  return <div ref={refContainer} />
+}
+
+export default JSONEditorReact
+```
+
+### Import and use the React component
+
+If you are using NextJS, you will need to use a dynamic import to only render the component in the browser (disabling server-side rendering of the wrapper), as shown below in a NextJS TypeScript example.
+
+If you are using React in an conventional non-NextJS browser app, you can import the component using a standard import statement like `import JSONEditorReact from '../JSONEditorReact'`
+
+```typescript
+//
+// demo.tsx for use with NextJS
+//
+import dynamic from 'next/dynamic'
+import { useCallback, useState } from 'react'
+
+//
+// In NextJS, when using TypeScript, type definitions
+// can be imported from 'vanilla-jsoneditor' using a
+// conventional import statement (prefixed with 'type',
+// as shown below), but only types can be imported this
+// way. When using NextJS, React components and helper
+// functions must be imported dynamically using { ssr: false }
+// as shown elsewhere in this example.
+//
+import type { Content, OnChangeStatus } from 'vanilla-jsoneditor'
+
+//
+// In NextJS, the JSONEditor component must be wrapped in
+// a component that is dynamically in order to turn off
+// server-side rendering of the component. This is neccessary
+// because the vanilla-jsoneditor code attempts to use
+// browser-only JavaScript capabilities not available
+// during server-side rendering. Any helper functions
+// provided by vanilla-jsoneditor, such as toTextContent,
+// must also only be used in dynamically imported,
+// ssr: false components when using NextJS.
+//
+const JSONEditorReact = dynamic(() => import('../JSONEditorReact'), { ssr: false })
+const TextContent = dynamic(() => import('../TextContent'), { ssr: false })
+
+const initialContent = {
+  hello: 'world',
+  count: 1,
+  foo: ['bar', 'car']
+}
+
+export default function Demo() {
+  const [jsonContent, setJsonContent] = useState<Content>({ json: initialContent })
+  const handler = useCallback(
+    (content: Content, previousContent: Content, status: OnChangeStatus) => {
+      setJsonContent(content)
+    },
+    [jsonContent]
+  )
+
+  return (
+    <div>
+      <JSONEditorReact content={jsonContent} onChange={handler} />
+      <TextContent content={jsonContent} />
+    </div>
+  )
+}
+```
+
+```typescript
+//
+// TextContent.tsx
+//
+// (wrapper around toTextContent for use with NextJS)
+//
+import { Content, toTextContent } from 'vanilla-jsoneditor'
+
+interface IOwnProps {
+  content: Content
+}
+const TextContent = (props: IOwnProps) => {
+  const { content } = props
+
+  return (
+    <p>
+      The contents of the editor, converted to a text string, are: {toTextContent(content).text}
+    </p>
+  )
+}
+
+export default TextContent
+```
