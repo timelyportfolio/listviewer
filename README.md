@@ -1,4 +1,6 @@
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/listviewer)](https://cran.r-project.org/package=listviewer) [![Travis-CI Build Status](https://travis-ci.org/timelyportfolio/listviewer.svg?branch=master)](https://travis-ci.org/timelyportfolio/listviewer)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/listviewer)](https://cran.r-project.org/package=listviewer)
+
+[![R-CMD-check](https://github.com/timelyportfolio/listviewer/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/timelyportfolio/listviewer/actions/workflows/R-CMD-check.yaml)
 
 # listviewer
 A package of R htmlwidgets to interactively view *and maybe modify* `lists`.  As of now, `listviewer` provides an interface to [`jsoneditor`](https://github.com/josdejong/jsoneditor) and [`react-json-view`](https://github.com/mac-s-g/react-json-view).  `listviewer` is designed to support multiple interfaces.
